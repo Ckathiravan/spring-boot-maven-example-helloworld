@@ -31,7 +31,7 @@ pipeline {
                 echo 'Starting to build docker image'
 			    script{
 				sh 'docker build . -t ckathiravan/spring-boot:test'
-				withDockerRegistry(credentialsId: 'docker-id', url: 'https://hub.docker.com/')
+				withCredentials([string(credentialsId: '', variable: 'DOCKER_PASSWORD')])
                 {
                 sh '''docker login -u ckathiravan -p $docker_password
                 docker push ckathiravan/spring-boot:test'''
