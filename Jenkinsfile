@@ -1,11 +1,5 @@
 pipeline{
-
-      agent {
-                docker {
-                image 'maven:openjdk'
-
-                }
-            }
+       agent any
         
         stages{
 
