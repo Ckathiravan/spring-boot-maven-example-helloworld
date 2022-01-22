@@ -15,5 +15,10 @@ pipeline {
                 sh 'java -version'
             }
         }
+        stage ('Build') {
+            agent { docker 'maven:3.8.1-adoptopenjdk-11' } 
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
     }
 }
