@@ -1,22 +1,18 @@
 pipeline {
-    agent any
-    tools { 
-        MAVAN_HOME 'Maven 3.8.4' 
-        JAVA_HOME 'jdk8' 
-    }
+    agent none 
     stages {
-        stage ('Initialize') {
+        stage('Example Build') {
+            agent { docker 'maven:3.8.1-adoptopenjdk-11' } 
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                ''' 
+                echo 'Hello, Maven'
+                sh 'mvn --version'
             }
         }
-
-        stage ('Build') {
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
             steps {
-                echo 'This is a minimal pipeline.'
+                echo 'Hello, JDK'
+                sh 'java -version'
             }
         }
     }
