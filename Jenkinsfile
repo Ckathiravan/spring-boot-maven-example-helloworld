@@ -34,7 +34,7 @@ pipeline {
 				withCredentials([string(credentialsId: 'docker-credential', variable: 'docker_password')]) 
                 {
                 sh '''docker login -u ckathiravan -p $docker_password
-                docker push deekshithsn/devops-training:${env.BUILD_NUMBER}
+                docker push ckathiravan/spring-boot:${env.BUILD_NUMBER}
 		'''
                 }
             }
