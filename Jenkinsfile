@@ -4,7 +4,7 @@ pipeline{
 
     environment 
         {
-            registry = "ckathiravan"
+            registry = "ckathiravan/spring-boot"
             registryCredential = 'dockerhub'
             dockerImage = ''
         }
