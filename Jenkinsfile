@@ -1,9 +1,11 @@
-pipeline {
-  environment {
-    registry = "ckathiravan"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-  }
+pipeline 
+{
+  environment 
+    {
+         registry = "ckathiravan"
+         registryCredential = 'dockerhub'
+         dockerImage = ''
+    }
   agent any
   stages {
     stage ('Build') {
