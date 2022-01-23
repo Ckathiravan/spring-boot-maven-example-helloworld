@@ -39,7 +39,7 @@ pipeline{
                    * First, the incremental build number from Jenkins
                    * Second, the 'latest' tag.
                    * Pushing multiple tags is cheap, as all the layers are reused. */
-                         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                         docker.withRegistry('', 'dockerhub') {
                          dockerImage.push("${env.BUILD_NUMBER}")
                          dockerImage.push("latest")
                     }
