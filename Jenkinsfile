@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo 'Starting to build docker image'
 			    script{
-				sh 'docker build . -t ckathiravan/spring-boot:${env.BUILD_NUMBER}'
+				sh "docker build . -t ckathiravan/spring-boot:${env.BUILD_NUMBER}"
 				withCredentials([string(credentialsId: 'docker-credential', variable: 'docker_password')]) 
                 {
                 sh '''docker login -u ckathiravan -p $docker_password
