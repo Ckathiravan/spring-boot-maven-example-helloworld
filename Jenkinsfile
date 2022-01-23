@@ -33,8 +33,8 @@ pipeline {
 				sh "docker build . -t ckathiravan/spring-boot:${env.BUILD_NUMBER}"
 				withCredentials([string(credentialsId: 'docker-credential', variable: 'docker_password')]) 
                 {
-                sh '''docker login -u ckathiravan -p $docker_password
-                docker push ckathiravan/spring-boot:${env.BUILD_NUMBER}'''
+                sh "docker login -u ckathiravan -p $docker_password"
+                sh "docker push ckathiravan/spring-boot:${env.BUILD_NUMBER}"
                 }
             }
           }
