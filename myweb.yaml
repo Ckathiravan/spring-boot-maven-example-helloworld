@@ -15,6 +15,7 @@ spec:
       labels:
         app: myweb
     spec:
+      nodeName: ip-26-0-1-73
       containers:
       - image: ckathiravan/spring-boot:latest
         imagePullPolicy: Always
